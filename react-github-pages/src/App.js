@@ -1,13 +1,11 @@
-import Header  from './components/Header';
-import AddTask from './components/AddTask';
+import Header from './components/Header';
+import HomePage from './components/HomePage';
 
 function App() {
   return (
     <div>
-    <Header/>
-    <br/>
-    <br/>
-    <AddTask/>
+      <Header />
+      <HomePage />
     </div>
   );
 }

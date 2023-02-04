@@ -1,30 +1,36 @@
-import React ,{useContext} from "react";
+import React, { useContext } from "react";
 import DisplaySingleTask from "./DisplaySingleTask";
-import { TaskContext } from "../Task_Context";
+import { TaskContext } from "../context/Task_Context";
 
 
 export default function DisplayAllTask() {
 
-    
-    const value=useContext(TaskContext);
-   
+  
+
+  const value = useContext(TaskContext);
+
+ 
 
   return (
-   
+
     <div>
 
 
-        <ul className="list-group list-group-flush">
+      <ul className="list-group list-group-flush">
         {
-           
-            value.task.map((item,index)=>{
-                return <li className="list-group-item" key={index}><DisplaySingleTask item={item} /></li>
-            })
-       
 
+          value.task.map((item, index) => {
+            return <li className="list-group-item" key={index}><DisplaySingleTask item={item} /></li>
+          })
+        }
+        {
 
-}
-     </ul>
+          value.completedTask.map((item, index) => {
+            return <li className="list-group-item" key={index}><DisplaySingleTask item={item} /></li>
+          })
+
+        }
+      </ul>
     </div>
   );
 }

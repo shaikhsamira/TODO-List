@@ -1,7 +1,7 @@
 //component for Edit existing task title
 
 import React ,{useContext, useState} from "react";
-import { TaskContext } from "../Task_Context";
+import { TaskContext } from "../context/Task_Context";
 
 const EditTask =({item,handleCancleDelete})=>{
     //newTask for new edited task
