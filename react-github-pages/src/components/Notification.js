@@ -1,11 +1,11 @@
 import React from "react";
 import "../styles/HomePage.css"
 
-const Notification = () => {
+const Notification = ({msg,visibility}) => {
     return (
 
-        <div class="alert alert-success mx-auto" role="alert" id="AlertStyles">
-            This is a success alert—check it out!
+        <div className="alert alert-success mx-auto" role="alert" id="AlertStyles" style={{"visibility":visibility}}>
+            {msg}
         </div>
     )
 

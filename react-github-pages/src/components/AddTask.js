@@ -1,11 +1,9 @@
 import React, { useContext, useState } from 'react';
-import { TaskContext } from '../context/Task_Context';
+import { TodoListContext } from '../context/TaskDatacontext';
 
 const AddTask = () => {
 
-    // //task and userinput states for storing task-list and newinput from user
-    const { task, setTask } = useContext(TaskContext);
-
+    //  userinput states for newinput from user
     const [userInput, setUserInput] = useState('');
 
     //set newTask in userInput to later add it in task list 
@@ -14,28 +12,19 @@ const AddTask = () => {
 
     }
 
-    var Dt
-    //add new task in task list
+    //Getting add function and setMsg for alert  from context
+    const {  addTodoItem,  setAlert } = useContext(TodoListContext);
+
+    //calls addTodoItem function 
     const handleSubmit = (e) => {
         if (e.key === 'Enter' || e.key === 'Tab' || e.type === 'click') {
             e.preventDefault()
-            var currentDate = new Date();
-            Dt = currentDate.toString().substring(0, 15)
-
-
-            setTask([...task, {
-                "id": task.length + 1, "title": userInput,
-                "DtTm": Dt,
-                "state": "new"
-            }])
+            addTodoItem(userInput);
             setUserInput('')
-
-
+            setAlert('Task Added Successfully');
+            
         }
     }
-
-
-
 
     return (
         <>
