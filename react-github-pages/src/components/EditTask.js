@@ -8,12 +8,14 @@ const EditTask = ({ item, handleCancleDelete }) => {
     const [editedTask, setNewTask] = useState()
 
     //getting edit funct from context
-    const { editTodoItem } = useContext(TodoListContext);
+    const { editTodoItem, sortItems } = useContext(TodoListContext);
 
     //call edit func
     const handleSubmit = (e) => {
         if (e.key === 'Enter' || e.key === 'Tab' || e.type === 'click') {
             editTodoItem(item.id, editedTask);
+            //sort after edit
+            sortItems(1)
             //to remove input box from view
             handleCancleDelete()
         }

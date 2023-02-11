@@ -13,13 +13,14 @@ const AddTask = () => {
     }
 
     //Getting add function and setMsg for alert  from context
-    const {  addTodoItem,  setAlert } = useContext(TodoListContext);
+    const {  addTodoItem,  setAlert ,sortItems} = useContext(TodoListContext);
 
     //calls addTodoItem function 
     const handleSubmit = (e) => {
         if (e.key === 'Enter' || e.key === 'Tab' || e.type === 'click') {
             e.preventDefault()
             addTodoItem(userInput);
+            sortItems(1)
             setUserInput('')
             setAlert('Task Added Successfully');
             
