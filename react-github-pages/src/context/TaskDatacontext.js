@@ -15,6 +15,7 @@ export const Provider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem("my-TaskList", JSON.stringify(state.todoList));
+    localStorage.setItem("latestID", JSON.stringify(state.latestID))
   }, [state]);
 
 
@@ -35,6 +36,9 @@ export const Provider = ({ children }) => {
     markAsCompleted: (id) => {
 
       dispatch({ type: actions.CHECK_TODO_ITEM, id });
+    },
+    sortItems: (order) => {
+      dispatch({ type: actions.SORT_TODO_ITEM, order });
     },
     setAlert: (msg) => {
       setMsg(msg)
